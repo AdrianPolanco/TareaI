@@ -1,0 +1,15 @@
+.spinner {
+    background: #fff url(images/spinner.gif) no-repeat center center;
+    height: 100vh;
+    background-size: 50%;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    transition: 0.5s;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.6s linear;
+}
