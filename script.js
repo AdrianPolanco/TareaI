@@ -53,7 +53,7 @@ function crearHTML(e) {
             alt="Bike riding"
             class="image bike-img"
         />
-        <div class="p-container">
+        
             <p class="p p-day">
                 Entre mis hobbies esta el montar bicicleta,
                 especialmente en lugares despejados y tranquilos
@@ -73,9 +73,10 @@ function crearHTML(e) {
 }
 
 function limpiarDiv(e) {
-    const newArticle = document.createElement("article");
-    newArticle.classList.add("hobbies", "bike", "border");
-    newArticle.innerHTML = ` <svg
+    if (e.target.classList.contains("container-info")) {
+        const newArticle = document.createElement("article");
+        newArticle.classList.add("hobbies", "bike", "border");
+        newArticle.innerHTML = ` <svg
     xmlns="http://www.w3.org/2000/svg"
     width="192"
     height="160"
@@ -88,9 +89,10 @@ function limpiarDiv(e) {
     />
 </svg>
     `;
-    e.target.parentElement.insertBefore(newArticle, e.target);
-    e.target.parentElement.removeChild(e.target);
-    newArticle.addEventListener("click", crearHTML);
+        e.target.parentElement.insertBefore(newArticle, e.target);
+        e.target.parentElement.removeChild(e.target);
+        newArticle.addEventListener("click", crearHTML);
+    }
 }
 
 /*

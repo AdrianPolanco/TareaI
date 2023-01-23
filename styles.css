@@ -67,17 +67,32 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: fadein 2s;
 }
 
 .container-info {
-    height: 68rem;
+    max-height: 68rem;
     max-width: 40rem;
     transform: translateY(-20%);
     border-radius: 1rem;
     display: flex;
+    padding: 1rem 2rem;
     flex-direction: column;
     gap: 2rem;
     box-shadow: 0rem 0rem 10rem 0.1rem;
+    animation: fadein 2s;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .p-container {
