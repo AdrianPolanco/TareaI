@@ -80,9 +80,13 @@ h1 {
     flex-direction: column;
     gap: 2rem;
     box-shadow: 0rem 0rem 10rem 0.1rem;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
+/*Creando una animación para que el div generado con Javascript aparezca gradualmente
+y no de golpe,una vez creada la animacion usando @keyfranes, se le asigna el nombre
+al lado de keyframes en el atributo animation, eln cual agregaremos al elemento
+que querramos que tenga esa animación*/
 @keyframes fadein {
     0% {
         opacity: 0;
