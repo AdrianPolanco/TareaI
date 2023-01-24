@@ -44,3 +44,28 @@
 .day {
     background-color: rgba(255, 255, 255, 0.726);
 }
+
+.night {
+    background-color: hsl(0, 0%, 15%);
+}
+
+.card-night {
+    background-color: hsl(0, 0%, 20%);
+}
+
+.svg-night {
+    fill: rgba(255, 255, 255, 0.726);
+}
+
+.svg-day {
+    stroke: #000000;
+}
+
+.hidden-mode {
+    visibility: hidden;
+}
+
+.toggle-theme__icons {
+    margin-right: 0.5em;
+    width: 4rem;
+}

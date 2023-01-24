@@ -1,19 +1,3 @@
-//Constructor
-function Builder(title, image, description) {
-    (this.title = title),
-        (this.image = image),
-        (this.description = description);
-}
-
-//Objetos
-const bikeHobby = new Builder(
-    "Montar bicicleta",
-    "images/bike.jpg",
-    "Entre mis hobbies esta el montar bicicleta,especialmente en lugares despejados y tranquiloscomo parques o montes, me gusta sentir el viento en mi cara."
-);
-
-console.log(bikeHobby);
-
 //Selectores
 const bodySelector = document.querySelector("body");
 const spinner = document.querySelector("#spinner");
@@ -21,14 +5,22 @@ const hobbies = document.querySelector(".container");
 const bike = document.querySelector(".bike");
 const development = document.querySelector(".development");
 const gaming = document.querySelector(".gaming");
+const swim = document.querySelector(".swim");
+const watch = document.querySelector(".watch");
+const music = document.querySelector(".music");
+
+const dayMode = document.querySelector("#toggle-icon");
 
 //Eventos
 document.addEventListener("DOMContentLoaded", cargar);
 bike.addEventListener("click", crearHTML);
 development.addEventListener("click", crearHTML);
 gaming.addEventListener("click", crearHTML);
-//Funciones
+swim.addEventListener("click", crearHTML);
+watch.addEventListener("click", crearHTML);
+music.addEventListener("click", crearHTML);
 
+//Funcimouseout
 function cargar(e) {
     bodySelector.classList.add("no-movil");
     hobbies.classList.add("no-show");
@@ -130,6 +122,92 @@ function crearHTML(e) {
             cardGaming.addEventListener("click", limpiarDiv);
 
             break;
+        case "swim":
+            const cardSwim = document.createElement("div");
+            cardSwim.classList.add(
+                "container-info",
+                "container-info-day",
+                "my-swim"
+            );
+            cardSwim.innerHTML = `
+            <header class="card-header card-header-day">
+                            <p>Nadar</p>
+                        </header>
+                        <img
+                            src="images/swim.jpg"
+                            alt="Swimming"
+                            class="image swim-img"
+                        />
+                        <div class="p-container">
+                            <p class="p p-day">
+                                La natación es uno de mis deportes preferidos,
+                                siempre que tengo la oportunidad nado en playas
+                                o piscinas, aunque hare todo lo posible para
+                                prácticarlo como deporte regularmente algún día!
+                            </p>
+                        </div>`;
+            e.target.parentElement.insertBefore(cardSwim, e.target);
+            e.target.parentElement.removeChild(e.target);
+            cardSwim.addEventListener("click", limpiarDiv);
+            break;
+        case "watch":
+            const cardWatch = document.createElement("div");
+            cardWatch.classList.add(
+                "container-info",
+                "container-info-day",
+                "my-watch"
+            );
+            cardWatch.innerHTML = `
+            <header class="card-header card-header-day">
+                            <p>Ver series y documentales</p>
+                        </header>
+                        <img
+                            src="images/watch.jpg"
+                            alt="Watching series"
+                            class="image watch-img"
+                        />
+                        <div class="p-container">
+                            <p class="p p-day">
+                                Encuentro muy entretenido el ver series y
+                                documentales (especialmente), suelen ser
+                                generalmente históricos, militares o de
+                                supervivencia, aunque ocasionalmente también veo
+                                series de anime japonesas.
+                            </p>
+                        </div>`;
+            e.target.parentElement.insertBefore(cardWatch, e.target);
+            e.target.parentElement.removeChild(e.target);
+            cardWatch.addEventListener("click", limpiarDiv);
+            break;
+        case "music":
+            const cardMusic = document.createElement("div");
+            cardMusic.classList.add(
+                "container-info",
+                "container-info-day",
+                "my-music"
+            );
+            cardMusic.innerHTML = `
+            <header class="card-header card-header-day">
+                            <p>Escuchar música</p>
+                        </header>
+                        <img
+                            src="images/music.jpg"
+                            alt="Listening music"
+                            class="image music-img"
+                        />
+                        <div class="p-container">
+                            <p class="p p-day">
+                                Uno de mis hobbies más frecuentes es escuchar
+                                musica en mi bocina o celular dependiendo la
+                                hora, especialmente bachata y en menor medida,
+                                pop.
+                            </p>
+                        </div>
+                        `;
+            e.target.parentElement.insertBefore(cardMusic, e.target);
+            e.target.parentElement.removeChild(e.target);
+            cardMusic.addEventListener("click", limpiarDiv);
+            break;
         default:
     }
 }
@@ -168,25 +246,14 @@ function limpiarDiv(e) {
                 newArticleDevelopment.innerHTML = ` <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="192"
-                height="192"
-                fill="#000000"
-                viewBox="0 0 256 256"
+                height="160"
+                fill="currentColor"
+                class="bi bi-pc-display-horizontal"
+                viewBox="0 0 16 16"
             >
-                <rect width="256" height="256" fill="none"></rect>
-                <rect
-                    x="32"
-                    y="48"
-                    width="192"
-                    height="160"
-                    rx="8"
-                    fill="none"
-                    stroke="#000000"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="16"
-                ></rect>
-                <circle cx="68" cy="84" r="12"></circle>
-                <circle cx="108" cy="84" r="12"></circle>
+                <path
+                    d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z"
+                />
             </svg>
         `;
                 e.target.parentElement.insertBefore(
@@ -218,6 +285,73 @@ function limpiarDiv(e) {
                 e.target.parentElement.insertBefore(newArticleGaming, e.target);
                 e.target.parentElement.removeChild(e.target);
                 newArticleGaming.addEventListener("click", crearHTML);
+                break;
+            case "my-swim":
+                const newArticleSwim = document.createElement("article");
+                newArticleSwim.classList.add("hobbies", "swim", "border");
+                newArticleSwim.innerHTML = ` <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="192"
+                height="160"
+                fill="currentColor"
+                class="bi bi-water"
+                viewBox="0 0 16 16"
+            >
+                <path
+                    d="M.036 3.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 3.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 6.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 9.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65z"
+                />
+            </svg>
+            `;
+                e.target.parentElement.insertBefore(newArticleSwim, e.target);
+                e.target.parentElement.removeChild(e.target);
+                newArticleSwim.addEventListener("click", crearHTML);
+                break;
+            case "my-watch":
+                const newArticleWatch = document.createElement("article");
+                newArticleWatch.classList.add("hobbies", "watch", "border");
+                newArticleWatch.innerHTML = ` <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="192"
+                height="160"
+                fill="currentColor"
+                class="bi bi-tv-fill"
+                viewBox="0 0 16 16"
+            >
+                <path
+                    d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM2 2h12s2 0 2 2v6s0 2-2 2H2s-2 0-2-2V4s0-2 2-2z"
+                />
+            </svg>
+            `;
+                e.target.parentElement.insertBefore(newArticleWatch, e.target);
+                e.target.parentElement.removeChild(e.target);
+                newArticleWatch.addEventListener("click", crearHTML);
+                break;
+            case "my-music":
+                const newArticleMusic = document.createElement("article");
+                newArticleMusic.classList.add("hobbies", "music", "border");
+                newArticleMusic.innerHTML = ` <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="192"
+                height="160"
+
+                class="bi bi-music-note-beamed"
+                viewBox="0 0 16 16"
+            >
+                <path
+                    d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"
+                />
+                <path
+                    fill-rule="evenodd"
+                    d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"
+                />
+                <path
+                    d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"
+                />
+            </svg>
+            `;
+                e.target.parentElement.insertBefore(newArticleMusic, e.target);
+                e.target.parentElement.removeChild(e.target);
+                newArticleMusic.addEventListener("click", crearHTML);
                 break;
             default:
         }
